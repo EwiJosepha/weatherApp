@@ -1,4 +1,7 @@
 const wrapper = document.getElementsByClassName('wrapper')
+const searchh = document.getElementById('search')
+
+
 
 const locations = [
   {
@@ -302,3 +305,53 @@ const locations = [
     ],
   },
 ];
+
+//collecting the characters of input field
+searchh.addEventListener('click', function collectValue () {
+  let  inputt = document.getElementById('input-field').value
+})
+
+
+let humudity = document.getElementById('humidity')
+
+function render () { 
+  
+const el = locations.map(returnTemp).join('')
+
+console.log(el);
+
+humudity.innerHTML= el
+console.log(el);
+}
+
+
+
+function returnTemp (location) {
+
+  return`<div class="humidity">
+  <div class="wrapper-sub">
+    <div class="sub-icon">
+      <i class="fa-sharp fa-solid fa-arrow-right"></i>
+    </div>
+    <div class="sub-temp">
+      <p>${location.temperature}/p>
+    </div>
+  </div>
+  <div class="wrapper-sub">
+    <div class="sub-icon">
+      <i class="fa-solid fa-plane"></i>
+    </div>
+    <div class="sub-temp">
+      <p>${location.wind_speed}</p>
+    </div>
+  </div>
+  <div class="wrapper-sub">
+    <div class="sub-icon">
+      <i class="fa-solid fa-droplet"></i>
+    </div>
+    <div class="sub-temp">
+      <p>${location.humidity}</p>
+    </div>
+  </div>
+</div>`
+}
