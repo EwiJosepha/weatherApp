@@ -22,6 +22,7 @@ body {
   align-items: center; */
   background-color: #ece3e3;
   border: 2px solid #ece3e3;
+  border-radius: 8px;
   border: none;
   box-shadow: 2px 2px 11px 2px;
 }
@@ -82,17 +83,17 @@ input {
 }
 
 #humidity {
-  gap: 10px;
+  gap: 30px;
   display: flex;
   flex-direction: column;
- 
+  padding: 15px;
+  color: #e6d6d6;
 }
 
 .wrapper-sub {
 
   display: flex;
   gap: 10px;
-  
 }
 
 .bottom-wrapper {
@@ -104,8 +105,12 @@ input {
   gap: 3rem;
 }
 
+p {
+  color: #a49b9b;
+}
+
 .fa-cloud-rain {
-  font-size: 30px;
+  font-size: 50px;
   color: #b5a4a4;
 }
  .fa-duotone {
@@ -115,7 +120,7 @@ input {
 
 .fa-sharp {
   font-size: 20px;
-  color: #716464;
+  color: #d7c9c9;
 }
 
 .fa-cloud {

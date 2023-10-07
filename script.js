@@ -306,27 +306,75 @@ const locations = [
   },
 ];
 
+console.log(locations[0]);
+console.log(locations[1]);
+console.log(locations[2]);
+console.log(locations[3]);
+console.log(locations[4]);
+
 //collecting the characters of input field
 searchh.addEventListener('click', function collectValue () {
+  let pushIn = []
   let  inputt = document.getElementById('input-field').value
+  for(let i = 0; i < locations.length; i ++){
+    console.log(i);
+    if(inputt === locations[i]){
+      pushIn.push(i)
+    }
+  else{
+    console.log('it is not found in the array');
+  }
+  }
+  console.log(inputt);
 })
 
 
-let humudity = document.getElementById('humidity')
 
 function render () { 
   
-const el = locations.map(returnTemp).join('')
 
-console.log(el);
 
-humudity.innerHTML= el
-console.log(el);
+    locations.forEach((location) => {
+
+      let humudity = document.getElementById('humidity')
+      humudity.innerHTML = `<div class="humidity">
+      <div class="wrapper-sub">
+        <div class="sub-icon">
+          <i class="fa-sharp fa-solid fa-arrow-right"></i>
+        </div>
+        <div class="sub-temp">
+          <p>${location.current.wind_speed}mph</p>
+        </div>
+      </div>
+      <div class="wrapper-sub">
+        <div class="sub-icon">
+          <i class="fa-solid fa-plane"></i>
+        </div>
+        <div class="sub-temp">
+          <p>${location.current.temperature}%</p>
+        </div>
+      </div>
+      <div class="wrapper-sub">
+        <div class="sub-icon">
+          <i class="fa-solid fa-droplet"></i>
+        </div>
+        <div class="sub-temp">
+          <p>${location.current.humidity}%</p>
+        </div>
+      </div>
+    </div>`;
+  
+      // wrapper.append(newElement);
+    });
 }
 
+render ()
 
 
-function returnTemp (location) {
+
+
+
+function returnTemp (location, index) {
 
   return`<div class="humidity">
   <div class="wrapper-sub">
@@ -334,7 +382,7 @@ function returnTemp (location) {
       <i class="fa-sharp fa-solid fa-arrow-right"></i>
     </div>
     <div class="sub-temp">
-      <p>${location.temperature}/p>
+      <p>${location.current}/p>
     </div>
   </div>
   <div class="wrapper-sub">
@@ -342,7 +390,7 @@ function returnTemp (location) {
       <i class="fa-solid fa-plane"></i>
     </div>
     <div class="sub-temp">
-      <p>${location.wind_speed}</p>
+      <p>${location.current}</p>
     </div>
   </div>
   <div class="wrapper-sub">
@@ -350,7 +398,7 @@ function returnTemp (location) {
       <i class="fa-solid fa-droplet"></i>
     </div>
     <div class="sub-temp">
-      <p>${location.humidity}</p>
+      <p>${location.current}</p>
     </div>
   </div>
 </div>`
